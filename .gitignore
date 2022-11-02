@@ -1,0 +1,53 @@
+### ignore all csv files
+
+*.csv
+
+
+### ignore vscode and jupyter files
+
+.vscode/
+.ipynb_checkpoints/
+
+
+### build folder to be ignored except for .gitkeep
+
+flames2/third_generation_hpc/build/*
+!flames2/third_generation_hpc/build/.gitkeep
+flames2/third_generation_hpc/CMakeLists.txt
+
+
+### C++ files to be ignored
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+*.txt
