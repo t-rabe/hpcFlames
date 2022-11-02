@@ -1,3 +1,4 @@
+int fileNumInt = 17;
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -16,7 +17,7 @@
 using namespace std;
 
 int main() {
-    string fileNum = "_";
+    string fileNum = to_string(fileNumInt);
     auto start = std::chrono::high_resolution_clock::now();
     cout << "Start file # " << fileNum << endl;
     ofstream outfile;
