@@ -1,4 +1,4 @@
-int fileNumInt = 17;
+int fileNumInt = 0;
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -27,19 +27,21 @@ int main() {
     int num2 = 100000000; // number of points
     int num3 = 16; // number of samples
     int num4 = num2 - (num2 %num3); // the closest multiple of the # of samples
-    int num5 = 2000; // sideLen of the matrix
+    int num5 = 9000; // sideLen of the matrix
     
     Funcs funcs;
     vecFuncs a[] = {&Funcs::f0,&Funcs::f1,&Funcs::f2,&Funcs::f3,&Funcs::f4,&Funcs::f5,&Funcs::f6,&Funcs::f7,&Funcs::f8,&Funcs::f9,&Funcs::f10,
 			&Funcs::f11,&Funcs::f12,&Funcs::f13,&Funcs::f14,&Funcs::f15,&Funcs::f16,
 			&Funcs::f17,&Funcs::f18};
     
-    
+    cout << "Getting random choices..." << endl;
     RandChoice *randchoice = new RandChoice(num1,num4,num3);
 
+    cout << "Applying functions..." << endl;
     ApplyFuncs *applyfuncs = new ApplyFuncs(randchoice->getSample(),a,funcs);
     delete randchoice;
     
+    cout << "Making matrix..." << endl;
     MakeMatrix *makematrix = new MakeMatrix(num1,num3,num5,applyfuncs->getData());
     delete applyfuncs;
     vector<vector<vector<float>>> finMat = makematrix->getMatrix();

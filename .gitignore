@@ -13,7 +13,6 @@
 
 flames2/third_generation_hpc/build/*
 !flames2/third_generation_hpc/build/.gitkeep
-flames2/third_generation_hpc/CMakeLists.txt
 
 
 ### C++ files to be ignored
@@ -51,3 +50,4 @@ flames2/third_generation_hpc/CMakeLists.txt
 *.out
 *.app
 *.txt
+*.bin

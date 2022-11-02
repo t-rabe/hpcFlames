@@ -7,7 +7,7 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Release or Debug" FORCE)
 endif(NOT CMAKE_BUILD_TYPE)
 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -static-libgcc -static-libstdc++ -lpthread -Wall" CACHE INTERNAL "")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -static-libgcc -static-libstdc++ -pthread -lpthread -Wall" CACHE INTERNAL "")
 
 # SET(CMAKE_EXE_LINKER_FLAGS "$-rpath /apps2/gcc/9.2.0/lib64$")
 
@@ -31,19 +31,19 @@ file(GLOB USER_FILES_1
 "./headers/MakeMatrix.hpp"
 )
 
-# file(GLOB USER_FILES_2
-# "./src/DFGF_S1.cpp"
-# "./src/DFGF_T2.cpp"
-# "./src/RandVec.cpp"
-# "./src/RandArr.cpp"
-# "./src/tools.cpp"
-# "./headers/DFGF.hpp"
-# "./headers/DFGF_S1.hpp"
-# "./headers/DFGF_T2.hpp"
-# "./headers/RandVec.hpp"
-# "./headers/RandArr.hpp"
-# "./headers/tools.hpp"
-# )
+file(GLOB USER_FILES_2
+"./src/driver2.cpp"
+"./src/Functions.cpp"
+"./headers/Functions.hpp"
+"./src/RandChoice.cpp"
+"./headers/RandChoice.hpp"
+"./src/ApplyFuncs.cpp"
+"./headers/ApplyFuncs.hpp"
+"./src/MakeMatrix2.cpp"
+"./headers/MakeMatrix2.hpp"
+"./src/Pixel.cpp"
+"./headers/Pixel.hpp"
+)
 
 # file(GLOB USER_FILES_3
 # "./src/DFGF_S1.cpp"
@@ -127,8 +127,8 @@ add_executable( run_thirdGen_driver ${USER_FILES_1} )
 target_link_libraries( run_thirdGen_driver)
 
 # create an executable for driver 
-# add_executable( run_driver2 ${USER_FILES_1} )
-# target_link_libraries( run_driver2 gtest_main jsoncpp)
+add_executable( run_driver2 ${USER_FILES_2} )
+target_link_libraries( run_driver2)
 
 # create an executable for DFGF_S1 tests 
 # add_executable( run_DFGF_S1_tests ${TEST_FILES_DFGF_S1} ${USER_FILES_2} )
