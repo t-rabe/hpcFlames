@@ -1,4 +1,4 @@
-int fileNumInt = 0;
+// int fileNumInt = 2;
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -17,18 +17,19 @@ int fileNumInt = 0;
 
 using namespace std;
 
-int main() {
-    string fileNum = to_string(fileNumInt);
+int main(int argc, char *argv[]) {
+//    string fileNum = to_string(fileNumInt);
+    string fileNum = argv[1];
     auto start = std::chrono::high_resolution_clock::now();
     cout << "Start file # " << fileNum << endl;
     ofstream outfile;
     
-    string fileName = "../output/16_18Test" + fileNum + ".bin";
+    string fileName = "../output/testShell" + fileNum + ".bin";
     int num1 = 18; // number of functions
-    int num2 = 100000000; // number of points
+    int num2 = 10000000; // number of points
     int num3 = 16; // number of samples
     int num4 = num2 - (num2 %num3); // the closest multiple of the # of samples
-    int num5 = 9000; // sideLen of the matrix
+    int num5 = 1000; // sideLen of the matrix
     int num6 = (num5 *num5); // total number of bins
     
     Pixel *colorMat = new Pixel[num6];

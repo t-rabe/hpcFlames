@@ -1,4 +1,4 @@
-int fileNumInt = 0;
+int fileNumInt = 1;
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -24,7 +24,7 @@ int main() {
     
     string fileName = "../output/16_18Test" + fileNum + ".csv";
     int num1 = 18; // number of functions
-    int num2 = 100000000; // number of points
+    int num2 = 600000000; // number of points
     int num3 = 16; // number of samples
     int num4 = num2 - (num2 %num3); // the closest multiple of the # of samples
     int num5 = 9000; // sideLen of the matrix
