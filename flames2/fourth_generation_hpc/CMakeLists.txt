@@ -30,6 +30,8 @@ file(GLOB USER_FILES_1
 "./headers/ApplyFuncs.hpp"
 "./src/MakeMatrix.cpp"
 "./headers/MakeMatrix.hpp"
+"./src/MakeMatrixAvgCol.cpp"
+"./headers/MakeMatrixAvgCol.hpp"
 "./src/Pixel.cpp"
 "./headers/Pixel.hpp"
 "./src/PixelInt.cpp"
