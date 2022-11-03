@@ -14,6 +14,8 @@
 flames2/third_generation_hpc/build/*
 !flames2/third_generation_hpc/build/.gitkeep
 
+flames2/fourth_generation_hpc/build/*
+!flames2/fourth_generation_hpc/build/.gitkeep
 
 ### C++ files to be ignored
 
@@ -49,5 +51,5 @@ flames2/third_generation_hpc/build/*
 *.exe
 *.out
 *.app
-*.txt
+# *.txt
 *.bin
