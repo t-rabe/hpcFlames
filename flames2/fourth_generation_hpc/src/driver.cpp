@@ -13,6 +13,7 @@
 #include "../headers/RandChoice.hpp"
 #include "../headers/ApplyFuncs.hpp"
 #include "../headers/MakeMatrix.hpp"
+#include "../headers/MakeMatrixAvgCol.hpp"
 #include "../headers/Pixel.hpp"
 #include "../headers/PixelInt.hpp"
 
@@ -27,11 +28,12 @@ int main(int argc, char *argv[]) {
     
     string fileName = "../output/testDriver3" + fileNum + ".bin";
     bool includingAlpha = false;
+    bool averagingCols = false;
     int num1 = 18; // number of functions
-    int num2 = 100000000; // number of points
+    int num2 = 50000000; // number of points
     int num3 = 16; // number of samples
     int num4 = num2 - (num2 %num3); // the closest multiple of the # of samples
-    int num5 = 3000; // sideLen of the matrix
+    int num5 = 1000; // sideLen of the matrix
     int num6 = (num5 *num5); // total number of bins
     
     // PixelInt *colorMat = new PixelInt[num6];
@@ -50,14 +52,24 @@ int main(int argc, char *argv[]) {
     delete randchoice;
     
     cout << "Making matrix..." << endl;
-    MakeMatrix *makematrix = new MakeMatrix(num1,num3,num5,applyfuncs->getData(),includingAlpha);
+    
+    if (averagingCols) {
+        MakeMatrixAvg *makematrix = new MakeMatrixAvg(num1,num3,num5,applyfuncs->getData(),includingAlpha);
+        floatColorMat = makematrix->getMatrix();
+        delete makematrix;
+    }
+    else {
+        MakeMatrix *makematrix = new MakeMatrix(num1,num3,num5,applyfuncs->getData(),includingAlpha);
+        floatColorMat = makematrix->getMatrixNoNorm();
+        delete makematrix;
+    }
     delete applyfuncs;
     // delete colorMat;
 
     // Pixel *colorMat = new Pixel[num6];
     // cout << "Making matrix..." << endl;
-    floatColorMat = makematrix->getMatrixNoNorm();
-    delete makematrix;
+    // floatColorMat = makematrix->getMatrixNoNorm();
+    // delete makematrix;
     // MakeMatrix makematrix(num1,num3,num5,applyfuncs.getData2());
     // vector<vector<vector<vector<float>>>> finMat = makematrix.getMatrix2();
 
